@@ -56,7 +56,13 @@ class LinkedList
     false
   end
 
-  def find value
+  def find value, node = @head, position = 0
+    while node
+      return position if value == node.value
+      node = node.next_node
+      position += 1
+    end
+    nil
   end
 
   def to_s
