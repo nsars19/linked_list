@@ -79,6 +79,7 @@ class LinkedList
   def remove_at index, node = @head
     return @head = node.next_node if index == 0
     node = at(index - 1)
+    @tail = at(self.size - 2) if index == size - 1
     node.next_node = node.next_node.next_node
   end
 end
