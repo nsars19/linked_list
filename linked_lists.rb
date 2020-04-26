@@ -26,7 +26,7 @@ class LinkedList
     count
   end
 
-  def at index, position = 0, node = @head
+  def at index, node = @head, position = 0
     until position == index
       node = node.next_node
       position += 1
@@ -65,11 +65,18 @@ class LinkedList
     nil
   end
 
-  def to_s
-    #@list.each { |node| print "( #{node} ) -> " }; p nil
+  def to_s node = @head
+    while node
+      print "( #{node.value} ) -> "
+      node = node.next_node
+    end
+    p nil
   end
 
-  def insert_at value, index
+  def insert_at index, value, node = @head
+    (index - 1).times { node = node.next_node }
+    inserted_node = Node.new value, node.next_node
+    node.next_node = inserted_node
   end
 
   def remove_at index
