@@ -34,16 +34,14 @@ class LinkedList
     node
   end
 
-  def pop node = @head, position = 0
+  def pop node = @head
+    popped_value = @tail 
     @head = nil if self.size == 1
-    popped_value = @tail
-
-    node = at(self.size - 2)
-
-    @tail = node
+    @tail = at(self.size - 2) if self.size > 1
     @tail = nil if self.size == 0
-    node.next_node = nil
-    popped_value
+    @tail.next_node = nil if tail
+
+    return popped_value
   end
 
   def contains? value, node = @head
