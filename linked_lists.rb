@@ -10,7 +10,6 @@ class LinkedList
     node = Node.new value
     @tail ? @tail.next_node = node : @head = node
     @tail = node
-    p node.value
   end
 
   def prepend value
