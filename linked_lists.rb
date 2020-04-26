@@ -27,13 +27,12 @@ class LinkedList
     count
   end
 
-  def head
-  end
-
-  def tail
-  end
-
-  def at index
+  def at index, position = 0, node = @head
+    until position == index
+      node = node.next_node
+      position += 1
+    end
+    node
   end
 
   def pop
