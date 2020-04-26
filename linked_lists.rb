@@ -1,54 +1,58 @@
 class LinkedList
-  def initialize list = []
-    @list = list
+  attr_accessor :head, :tail
+
+  def initialize
+    @head = nil
+    @tail = nil
   end
+
   def append value
-    @list.push value
+    node = Node.new value
+    @tail ? @tail.next_node = node : @head = node
+    @tail = node
+    p node.value
   end
 
   def prepend value
-    @list.unshift value
   end
 
   def size
-    @list.size
   end
 
   def head
-    @list.first
   end
 
   def tail
-    @list.last
   end
 
   def at index
-    @list[index]
   end
 
   def pop
-    @list.pop
   end
 
   def contains? value
-    @list.include? value
   end
 
   def find value
-    @list.index value
   end
 
   def to_s
-    @list.each { |node| print "( #{node} ) -> " }; p nil
+    #@list.each { |node| print "( #{node} ) -> " }; p nil
+  end
+
+  def insert_at value, index
+  end
+
+  def remove_at index
   end
 end
 
 class Node
-  def value
-    nil
-  end
-
-  def next_node
-    nil
+  attr_accessor :value, :next_node
+  
+  def initialize value = nil, next_node = nil
+    @value     = value
+    @next_node = next_node
   end
 end
