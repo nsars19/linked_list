@@ -38,10 +38,8 @@ class LinkedList
     @head = nil if self.size == 1
     popped_value = @tail
 
-    until position == self.size - 2 || self.size == 0
-      node = node.next_node unless node == nil
-      position += 1
-    end
+    node = at(self.size - 2)
+
     @tail = node
     @tail = nil if self.size == 0
     node.next_node = nil
