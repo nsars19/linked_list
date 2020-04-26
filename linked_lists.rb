@@ -74,12 +74,15 @@ class LinkedList
   end
 
   def insert_at index, value, node = @head
-    @head = Node.new(value, @head); return if index == 0
-    (index - 1).times { node = node.next_node }
+    return @head = Node.new(value, @head) if index == 0
+    node = at(index - 1)
     node.next_node = Node.new value, node.next_node
   end
 
-  def remove_at index
+  def remove_at index, node = @head
+    return @head = node.next_node if index == 0
+    node = at(index - 1)
+    node.next_node = node.next_node.next_node
   end
 end
 
