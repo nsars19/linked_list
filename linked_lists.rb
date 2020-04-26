@@ -49,7 +49,12 @@ class LinkedList
     popped_value
   end
 
-  def contains? value
+  def contains? value, node = @head
+    while node
+      return true if node.value == value
+      node = node.next_node
+    end
+    false
   end
 
   def find value
