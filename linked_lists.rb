@@ -14,6 +14,9 @@ class LinkedList
   end
 
   def prepend value
+    node = Node.new value
+    node.next_node = @head if @head     
+    @head = node
   end
 
   def size
