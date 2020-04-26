@@ -19,7 +19,12 @@ class LinkedList
     @head = node
   end
 
-  def size
+  def size count = 0, node = @head
+    until node == nil
+      node = node.next_node
+      count += 1
+    end
+    count
   end
 
   def head
