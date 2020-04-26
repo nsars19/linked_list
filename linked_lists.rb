@@ -13,9 +13,8 @@ class LinkedList
   end
 
   def prepend value
-    node = Node.new value
-    node.next_node = @head if @head     
-    @head = node
+    @head = Node.new value, @head
+    @tail = @head unless tail
   end
 
   def size count = 0, node = @head
