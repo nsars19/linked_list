@@ -1,3 +1,5 @@
+require_relative 'nodes.rb'
+
 class LinkedList
   attr_accessor :head, :tail
 
